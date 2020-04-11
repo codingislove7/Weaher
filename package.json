@@ -1,0 +1,23 @@
+{
+  "name": "Weaher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Super-DLT/Weaher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Super-DLT/Weaher/issues"
+  },
+  "homepage": "https://github.com/Super-DLT/Weaher#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
