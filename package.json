@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Super-DLT/Weaher#readme",
   "dependencies": {
+    "chalk": "^4.0.0",
     "request": "^2.88.0"
   }
 }
