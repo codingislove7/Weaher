@@ -16,43 +16,40 @@ app.use(express.static(publicDirectoryPath));
 
 app.get("", (req, res) => {
   res.render("index", {
-    title: "weather App",
-    name: "Behnam",
+    title: "Weather",
+    name: "Behnam Sheykhe",
   });
 });
 
 app.get("/about", (req, res) => {
   res.render("about", {
     title: "About me",
-    name: "Behnam",
+    name: "Behnam Sheykhe",
   });
 });
 app.get("/help", (req, res) => {
   res.render("help", {
-    title: "help page",
     message:
       "it is simple, just enter your city and we tell you how weather is!",
-    name: "Behnam",
+    name: "Behnam Sheykhe",
   });
 });
-app.get("/weather", (req, res) => {
-  res.send({
-    location: "NewYork",
-    forecast: 56,
-  });
-});
+// app.get("/weather", (req, res) => {
+//   res.send({
+//     location: "NewYork",
+//     forecast: 56,
+//   });
+// });
 app.get("/help/*", (req, res) => {
   res.render("404", {
     errorMessage: "Helparicle not found",
-    name: "Behnam",
   });
 });
 app.get("*", (req, res) => {
   res.render("404", {
     errorMessage: "Page not found. 404",
-    name: "Behnam ",
   });
 });
-app.listen(3010, () => {
-  console.log("Server is up on port 3010.");
+app.listen(3200, () => {
+  console.log("Server is up on port 3200.");
 });

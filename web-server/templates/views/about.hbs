@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="./img/weather.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
@@ -9,10 +10,13 @@
 </head>
 
 <body>
-    {{>header}}
+    <div class="main-content">
+        {{>header}}
 
-    <h1> {{title}}</h1>
-    <img src="./img/NewYork.jpg" alt="" />
+    <h2> {{title}}</h2>
+    <img class="portrait" src="./img/Super-DLT.jpg" alt="" />
+    </div>
+    
     {{>footer}}
 </body>
 
