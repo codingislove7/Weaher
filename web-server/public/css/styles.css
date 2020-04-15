@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
 }
 
-.main-content{
+.main-content {
   flex-grow: 1;
 }
 footer {
@@ -39,3 +39,10 @@ header a {
   width: 320px;
 }
 
+input {
+  border: 5 solid red;
+  padding: 10px;
+}
+button {
+  padding: 10px;
+}

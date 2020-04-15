@@ -1,7 +1,5 @@
 const request = require("request");
-
-
-const weather = (address, callback) => {
+const weather = (address = "dubai", callback) => {
   const url =
     "https://api.weatherbit.io/v2.0/current?key=e057d488da8a4a3b916a074965521ff8&city=" +
     address;
@@ -12,9 +10,11 @@ const weather = (address, callback) => {
 
     if (error) {
       callback("cant access to wearher service!", undefined);
-    } else if (datas.error) {
-      callback("unable to find address", undefined);
-    } else {
+    }
+    //  else if (error) {
+    //   callback("unable to find address", undefined); //weaterbit api can't handel this part beacuse if api cant find location it dosent back {}
+    // }s
+    else {
       let data;
       for (arr of array) {
         data = arr;

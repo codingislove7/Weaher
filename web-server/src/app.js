@@ -41,10 +41,10 @@ app.get("/weather", (req, res) => {
       error: "You must search for an address",
     });
   }
-
+  let searchAddress = req.query.address;
   weather(
-    req.query.address,
-    (error, { timezone, cityname, temp, description, rain }) => {
+    searchAddress,
+    (error, { timezone, cityname, temp, description, rain } = {}) => {
       if (error) {
         return res.send({ error });
       }
@@ -57,12 +57,6 @@ app.get("/weather", (req, res) => {
       });
     }
   );
-
-  // res.send({
-  //   location: "NewYork",
-  //   forecast: 56,
-  //   address: weather(req.query.address),
-  // });
 });
 
 app.get("/products", (req, res) => {
@@ -71,7 +65,6 @@ app.get("/products", (req, res) => {
       error: "you must provide a search term",
     });
   }
-
   console.log(req.query.search);
 
   res.send({
@@ -89,6 +82,6 @@ app.get("*", (req, res) => {
     errorMessage: "Page not found. 404",
   });
 });
-app.listen(3090, () => {
-  console.log("Server is up on port 3090.");
+app.listen(8080, () => {
+  console.log("Server is up on port 9000.");
 });
