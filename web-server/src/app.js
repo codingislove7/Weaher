@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const hbs = require("hbs");
+const weather = require("./utils/weather.js");
 //Define paths  for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -34,12 +35,50 @@ app.get("/help", (req, res) => {
     name: "Behnam Sheykhe",
   });
 });
-// app.get("/weather", (req, res) => {
-//   res.send({
-//     location: "NewYork",
-//     forecast: 56,
-//   });
-// });
+app.get("/weather", (req, res) => {
+  if (!req.query.address) {
+    return res.send({
+      error: "You must search for an address",
+    });
+  }
+
+  weather(
+    req.query.address,
+    (error, { timezone, cityname, temp, description, rain }) => {
+      if (error) {
+        return res.send({ error });
+      }
+      res.send({
+        timezone,
+        cityname,
+        temp,
+        description,
+        rain,
+      });
+    }
+  );
+
+  // res.send({
+  //   location: "NewYork",
+  //   forecast: 56,
+  //   address: weather(req.query.address),
+  // });
+});
+
+app.get("/products", (req, res) => {
+  if (!req.query.search) {
+    return res.send({
+      error: "you must provide a search term",
+    });
+  }
+
+  console.log(req.query.search);
+
+  res.send({
+    products: [],
+  });
+});
+
 app.get("/help/*", (req, res) => {
   res.render("404", {
     errorMessage: "Helparicle not found",
@@ -50,6 +89,6 @@ app.get("*", (req, res) => {
     errorMessage: "Page not found. 404",
   });
 });
-app.listen(3200, () => {
-  console.log("Server is up on port 3200.");
+app.listen(3090, () => {
+  console.log("Server is up on port 3090.");
 });
